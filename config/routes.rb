@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  get"/firstcontact" => "contacts#first_contact"
-  get"/allcontacts" => "contacts#all_contacts"
+  namespace :v1 do 
+    get "/contacts" => "contacts#index"
+    post "/contacts" => "contacts#create"
+    get "/contacts/:id" => "contacts#show"
+    patch "/contacts/:id" => "contacts#update"
+    delete "/contacts/:id" => "contacts#destroy"
+  end
 end
