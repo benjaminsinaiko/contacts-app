@@ -5,6 +5,10 @@ class V1::ContactsController < ApplicationController
       contacts = contacts.where("first_name ILIKE ?", params[:first_name])
     end
     render json: contacts.as_json
+
+    # For testing no log in
+    # contacts = Contact.all
+    # render json: contacts.as_json
   end
 
   def create
